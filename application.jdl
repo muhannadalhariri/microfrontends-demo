@@ -1,0 +1,148 @@
+application {
+  config {
+    applicationType microservice
+    baseName LookupsService
+    serverPort 8081
+    packageName com.aiondigital.mfe.lookupsservice
+    searchEngine elasticsearch
+    cacheProvider redis
+    databaseType mongodb
+    devDatabaseType mongodb
+    prodDatabaseType mongodb
+    messageBroker kafka
+    serviceDiscoveryType eureka
+    otherModules [generator-jhipster-es-entity-reindexer, generator-jhipster-gql, generator-jhipster-kafka]
+  }
+  entities Country,City,Card
+}
+
+application {
+  config {
+    applicationType microservice
+    baseName FinanceService
+    serverPort 8082
+    packageName com.aiondigital.mfe.finances
+    searchEngine elasticsearch
+    cacheProvider redis
+    databaseType mongodb
+    devDatabaseType mongodb
+    prodDatabaseType mongodb
+    messageBroker kafka
+    serviceDiscoveryType eureka
+    otherModules [generator-jhipster-kafka]
+  }
+  entities FinanceRequest
+}
+
+application {
+  config {
+    applicationType microservice
+    baseName TransferService
+    serverPort 8083
+    packageName com.aiondigital.mfe.transfers
+    searchEngine elasticsearch
+    cacheProvider redis
+    databaseType mongodb
+    devDatabaseType mongodb
+    prodDatabaseType mongodb
+    messageBroker kafka
+    serviceDiscoveryType eureka
+    otherModules [generator-jhipster-kafka]
+  }
+  entities Transaction,TransactionDetails
+}
+application {
+  config {
+    applicationType gateway
+    authenticationType jwt
+    baseName AionDigitalMFEs
+    blueprints []
+    buildTool maven
+    cacheProvider redis
+    clientFramework angular
+    clientPackageManager npm
+    clientTheme zephyr
+    clientThemeVariant primary
+    dtoSuffix DTO
+    databaseType mongodb
+    devDatabaseType mongodb
+    prodDatabaseType mongodb
+    enableGradleEnterprise false
+    enableHibernateCache false
+    enableSwaggerCodegen true
+    enableTranslation true
+    gradleEnterpriseHost ""
+    jhiPrefix jhi
+    jhipsterVersion "7.9.3"
+    jwtSecretKey "Njg3NjYyMTQ1YjRlNzNmNDk2OWRlZGVhOTdmNzZiMTIzMDZmNDY0NTVlNGQ5OWQ4YmRmYzA4MDM2N2Y2Nzk3YmU5YzExZWZkM2VmODMyOTkyODYwNGM5ZGM5MWE2ZGJhYTAyOGJlNWQ0YWNjYzI0OTkwYzg3MmZmOGQzNjVkYTE="
+    languages [en,ar-ly]
+    microfrontend true
+    microfrontends [LookupsService,FinanceService,TransferService]
+    nativeLanguage en
+    otherModules [generator-jhipster-es-entity-reindexer, generator-jhipster-gql, generator-jhipster-kafka]
+    packageName com.aiondigital.mfe.gateway
+    reactive false
+    serverPort 8080
+    serviceDiscoveryType eureka
+    skipClient false
+    skipUserManagement false
+    testFrameworks [gatling, cucumber]
+    websocket false
+    withAdminUi true
+  }
+  entities *
+}
+
+deployment {
+  deploymentType docker-compose
+  appsFolders [LookupsService,FinanceService, TransferService  ]
+  dockerRepositoryName "aionDigitalMFEs"
+}
+
+
+entity Country{
+  nameAr String required ,
+  nameEn String required,
+  code String required minlength(2) maxlength(2),
+  currencyCode String required minlength(3) maxlength(3)
+}
+
+entity City{
+  nameAr String required ,
+  nameEn String required
+}
+entity Card{
+  nameAr String,
+  nameEn String,
+  cardTypeId Integer,
+  cardReference String
+}
+entity FinanceRequest {
+  userId String required,
+  totalAmount Double required,
+  installmentAmount Double required,
+  installmentPeriod Integer required
+}
+entity Transaction {
+  referenceId String required unique,
+  userId String required,
+}
+entity TransactionDetails{
+  key String,
+  value String,
+}
+
+relationship OneToMany {
+  Country to City
+  Transaction to TransactionDetails
+}
+
+microservice Country, City, Card with LookupsService
+microservice FinanceRequest with FinanceService
+microservice Transaction,TransactionDetails with TransferService
+
+
+paginate * with pagination
+service * with serviceClass
+search * with elasticsearch
+filter *

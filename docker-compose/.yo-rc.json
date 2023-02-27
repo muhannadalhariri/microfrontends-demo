@@ -1,0 +1,13 @@
+{
+  "generator-jhipster": {
+    "appsFolders": ["LookupsService", "FinanceService", "TransferService"],
+    "clusteredDbApps": [],
+    "deploymentType": "docker-compose",
+    "directoryPath": "../",
+    "dockerRepositoryName": "aionDigitalMFEs",
+    "gatewayType": "SpringCloudGateway",
+    "jwtSecretKey": "ZWZmN2YxYWZiNDYzYmY1NGE4NjMzNGZjZjkzYzMxYjU0OTNiNzM3ZDk5MmIzYWI4ZGY2OTkwMDNhNmMxNGY1NzA5ODczZTQxYjViZTYzZTNlYzhhMWEyNjg5MGFjNDRhZDliNQ==",
+    "monitoring": "no",
+    "serviceDiscoveryType": "eureka"
+  }
+}
