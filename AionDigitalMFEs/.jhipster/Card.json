@@ -1,0 +1,36 @@
+{
+  "applications": ["LookupsService", "AionDigitalMFEs"],
+  "changelogDate": "20230227095221",
+  "clientRootFolder": "LookupsService",
+  "databaseType": "mongodb",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "card",
+  "fields": [
+    {
+      "fieldName": "nameAr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nameEn",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cardTypeId",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "cardReference",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "LookupsService",
+  "name": "Card",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "searchEngine": "elasticsearch",
+  "service": "serviceClass"
+}

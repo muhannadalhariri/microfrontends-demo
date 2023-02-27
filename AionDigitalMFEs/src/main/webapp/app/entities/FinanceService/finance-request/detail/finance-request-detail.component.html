@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="financeRequest">
+      <h2 data-cy="financeRequestDetailsHeading">
+        <span jhiTranslate="aionDigitalMfEsApp.financeServiceFinanceRequest.detail.title">Finance Request</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ financeRequest.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="aionDigitalMfEsApp.financeServiceFinanceRequest.userId">User Id</span></dt>
+        <dd>
+          <span>{{ financeRequest.userId }}</span>
+        </dd>
+        <dt><span jhiTranslate="aionDigitalMfEsApp.financeServiceFinanceRequest.totalAmount">Total Amount</span></dt>
+        <dd>
+          <span>{{ financeRequest.totalAmount }}</span>
+        </dd>
+        <dt><span jhiTranslate="aionDigitalMfEsApp.financeServiceFinanceRequest.installmentAmount">Installment Amount</span></dt>
+        <dd>
+          <span>{{ financeRequest.installmentAmount }}</span>
+        </dd>
+        <dt><span jhiTranslate="aionDigitalMfEsApp.financeServiceFinanceRequest.installmentPeriod">Installment Period</span></dt>
+        <dd>
+          <span>{{ financeRequest.installmentPeriod }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/finance-request', financeRequest.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

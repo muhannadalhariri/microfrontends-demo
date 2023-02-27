@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="transactionDetails">
+      <h2 data-cy="transactionDetailsDetailsHeading">
+        <span jhiTranslate="aionDigitalMfEsApp.transferServiceTransactionDetails.detail.title">Transaction Details</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ transactionDetails.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="aionDigitalMfEsApp.transferServiceTransactionDetails.key">Key</span></dt>
+        <dd>
+          <span>{{ transactionDetails.key }}</span>
+        </dd>
+        <dt><span jhiTranslate="aionDigitalMfEsApp.transferServiceTransactionDetails.value">Value</span></dt>
+        <dd>
+          <span>{{ transactionDetails.value }}</span>
+        </dd>
+        <dt><span jhiTranslate="aionDigitalMfEsApp.transferServiceTransactionDetails.transaction">Transaction</span></dt>
+        <dd>
+          <div *ngIf="transactionDetails.transaction">
+            <a [routerLink]="['/transaction', transactionDetails.transaction.id, 'view']">{{ transactionDetails.transaction.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/transaction-details', transactionDetails.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+{
+  "aionDigitalMfEsApp": {
+    "lookupsServiceCountry": {
+      "home": {
+        "title": "Countries",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Country",
+        "createOrEditLabel": "Create or edit a Country",
+        "search": "Search for Country",
+        "notFound": "No Countries found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Country {{ id }}?"
+      },
+      "detail": {
+        "title": "Country"
+      },
+      "id": "ID",
+      "nameAr": "Name Ar",
+      "nameEn": "Name En",
+      "code": "Code",
+      "currencyCode": "Currency Code",
+      "city": "City"
+    }
+  },
+  "lookupsServiceApp": {
+    "lookupsServiceCountry": {
+      "created": "A new Country is created with identifier {{ param }}",
+      "updated": "A Country is updated with identifier {{ param }}",
+      "deleted": "A Country is deleted with identifier {{ param }}"
+    }
+  }
+}

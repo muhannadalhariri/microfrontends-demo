@@ -1,0 +1,32 @@
+{
+  "aionDigitalMfEsApp": {
+    "financeServiceFinanceRequest": {
+      "home": {
+        "title": "Finance Requests",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Finance Request",
+        "createOrEditLabel": "Create or edit a Finance Request",
+        "search": "Search for Finance Request",
+        "notFound": "No Finance Requests found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Finance Request {{ id }}?"
+      },
+      "detail": {
+        "title": "Finance Request"
+      },
+      "id": "ID",
+      "userId": "User Id",
+      "totalAmount": "Total Amount",
+      "installmentAmount": "Installment Amount",
+      "installmentPeriod": "Installment Period"
+    }
+  },
+  "financeServiceApp": {
+    "financeServiceFinanceRequest": {
+      "created": "A new Finance Request is created with identifier {{ param }}",
+      "updated": "A Finance Request is updated with identifier {{ param }}",
+      "deleted": "A Finance Request is deleted with identifier {{ param }}"
+    }
+  }
+}

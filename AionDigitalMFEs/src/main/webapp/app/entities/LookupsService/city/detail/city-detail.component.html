@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="city">
+      <h2 data-cy="cityDetailsHeading"><span jhiTranslate="aionDigitalMfEsApp.lookupsServiceCity.detail.title">City</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ city.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="aionDigitalMfEsApp.lookupsServiceCity.nameAr">Name Ar</span></dt>
+        <dd>
+          <span>{{ city.nameAr }}</span>
+        </dd>
+        <dt><span jhiTranslate="aionDigitalMfEsApp.lookupsServiceCity.nameEn">Name En</span></dt>
+        <dd>
+          <span>{{ city.nameEn }}</span>
+        </dd>
+        <dt><span jhiTranslate="aionDigitalMfEsApp.lookupsServiceCity.country">Country</span></dt>
+        <dd>
+          <div *ngIf="city.country">
+            <a [routerLink]="['/country', city.country.id, 'view']">{{ city.country.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/city', city.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

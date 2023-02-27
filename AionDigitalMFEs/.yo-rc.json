@@ -1,0 +1,91 @@
+{
+  "generator-jhipster": {
+    "applicationIndex": 3,
+    "applicationType": "gateway",
+    "applications": {
+      "FinanceService": {
+        "applicationIndex": 1,
+        "clientFramework": "no",
+        "serverPort": "8082"
+      },
+      "LookupsService": {
+        "applicationIndex": 0,
+        "clientFramework": "no",
+        "serverPort": "8081"
+      },
+      "TransferService": {
+        "applicationIndex": 2,
+        "clientFramework": "no",
+        "serverPort": "8083"
+      }
+    },
+    "authenticationType": "jwt",
+    "baseName": "AionDigitalMFEs",
+    "blueprints": [],
+    "buildTool": "maven",
+    "cacheProvider": "no",
+    "clientFramework": "angularX",
+    "clientPackageManager": "npm",
+    "clientTheme": "zephyr",
+    "clientThemeVariant": "primary",
+    "creationTimestamp": 1677491301040,
+    "databaseType": "mongodb",
+    "devDatabaseType": "mongodb",
+    "devServerPort": 4203,
+    "dtoSuffix": "DTO",
+    "enableGradleEnterprise": false,
+    "enableHibernateCache": false,
+    "enableSwaggerCodegen": true,
+    "enableTranslation": true,
+    "entities": ["Transaction", "City", "FinanceRequest", "Card", "TransactionDetails", "Country"],
+    "entitySuffix": "",
+    "gradleEnterpriseHost": "",
+    "jhiPrefix": "jhi",
+    "jhipsterVersion": "7.9.3",
+    "jwtSecretKey": "Njg3NjYyMTQ1YjRlNzNmNDk2OWRlZGVhOTdmNzZiMTIzMDZmNDY0NTVlNGQ5OWQ4YmRmYzA4MDM2N2Y2Nzk3YmU5YzExZWZkM2VmODMyOTkyODYwNGM5ZGM5MWE2ZGJhYTAyOGJlNWQ0YWNjYzI0OTkwYzg3MmZmOGQzNjVkYTE=",
+    "languages": ["en", "ar-ly"],
+    "lastLiquibaseTimestamp": 1677491661000,
+    "messageBroker": false,
+    "microfrontend": true,
+    "microfrontends": [
+      {
+        "baseName": "LookupsService"
+      },
+      {
+        "baseName": "FinanceService"
+      },
+      {
+        "baseName": "TransferService"
+      }
+    ],
+    "monorepository": true,
+    "nativeLanguage": "en",
+    "otherModules": [
+      {
+        "name": "generator-jhipster-es-entity-reindexer"
+      },
+      {
+        "name": "generator-jhipster-gql"
+      },
+      {
+        "name": "generator-jhipster-kafka"
+      }
+    ],
+    "packageFolder": "com/aiondigital/mfe/gateway",
+    "packageName": "com.aiondigital.mfe.gateway",
+    "pages": [],
+    "prodDatabaseType": "mongodb",
+    "reactive": true,
+    "searchEngine": false,
+    "serverPort": "8080",
+    "serviceDiscoveryType": "eureka",
+    "skipCheckLengthOfIdentifier": false,
+    "skipClient": false,
+    "skipCommitHook": true,
+    "skipFakeData": false,
+    "skipUserManagement": false,
+    "testFrameworks": ["gatling", "cucumber"],
+    "websocket": false,
+    "withAdminUi": true
+  }
+}

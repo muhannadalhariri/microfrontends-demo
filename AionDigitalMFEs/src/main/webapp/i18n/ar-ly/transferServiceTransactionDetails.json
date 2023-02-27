@@ -1,0 +1,31 @@
+{
+  "aionDigitalMfEsApp": {
+    "transferServiceTransactionDetails": {
+      "home": {
+        "title": "Transaction Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Transaction Details",
+        "createOrEditLabel": "Create or edit a Transaction Details",
+        "search": "Search for Transaction Details",
+        "notFound": "No Transaction Details found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Transaction Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Transaction Details"
+      },
+      "id": "ID",
+      "key": "Key",
+      "value": "Value",
+      "transaction": "Transaction"
+    }
+  },
+  "transferServiceApp": {
+    "transferServiceTransactionDetails": {
+      "created": "A new Transaction Details is created with identifier {{ param }}",
+      "updated": "A Transaction Details is updated with identifier {{ param }}",
+      "deleted": "A Transaction Details is deleted with identifier {{ param }}"
+    }
+  }
+}

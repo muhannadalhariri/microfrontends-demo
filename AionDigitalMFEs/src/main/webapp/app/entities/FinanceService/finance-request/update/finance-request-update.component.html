@@ -1,0 +1,154 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-finance-request-heading"
+        data-cy="FinanceRequestCreateUpdateHeading"
+        jhiTranslate="aionDigitalMfEsApp.financeServiceFinanceRequest.home.createOrEditLabel"
+      >
+        Create or edit a Finance Request
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aionDigitalMfEsApp.financeServiceFinanceRequest.userId" for="field_userId">User Id</label>
+          <input type="text" class="form-control" name="userId" id="field_userId" data-cy="userId" formControlName="userId" />
+          <div *ngIf="editForm.get('userId')!.invalid && (editForm.get('userId')!.dirty || editForm.get('userId')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('userId')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aionDigitalMfEsApp.financeServiceFinanceRequest.totalAmount" for="field_totalAmount"
+            >Total Amount</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="totalAmount"
+            id="field_totalAmount"
+            data-cy="totalAmount"
+            formControlName="totalAmount"
+          />
+          <div *ngIf="editForm.get('totalAmount')!.invalid && (editForm.get('totalAmount')!.dirty || editForm.get('totalAmount')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('totalAmount')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('totalAmount')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="aionDigitalMfEsApp.financeServiceFinanceRequest.installmentAmount"
+            for="field_installmentAmount"
+            >Installment Amount</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="installmentAmount"
+            id="field_installmentAmount"
+            data-cy="installmentAmount"
+            formControlName="installmentAmount"
+          />
+          <div
+            *ngIf="
+              editForm.get('installmentAmount')!.invalid &&
+              (editForm.get('installmentAmount')!.dirty || editForm.get('installmentAmount')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('installmentAmount')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('installmentAmount')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="aionDigitalMfEsApp.financeServiceFinanceRequest.installmentPeriod"
+            for="field_installmentPeriod"
+            >Installment Period</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="installmentPeriod"
+            id="field_installmentPeriod"
+            data-cy="installmentPeriod"
+            formControlName="installmentPeriod"
+          />
+          <div
+            *ngIf="
+              editForm.get('installmentPeriod')!.invalid &&
+              (editForm.get('installmentPeriod')!.dirty || editForm.get('installmentPeriod')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('installmentPeriod')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('installmentPeriod')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+{
+  "aionDigitalMfEsApp": {
+    "lookupsServiceCard": {
+      "home": {
+        "title": "Cards",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Card",
+        "createOrEditLabel": "Create or edit a Card",
+        "search": "Search for Card",
+        "notFound": "No Cards found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Card {{ id }}?"
+      },
+      "detail": {
+        "title": "Card"
+      },
+      "id": "ID",
+      "nameAr": "Name Ar",
+      "nameEn": "Name En",
+      "cardTypeId": "Card Type Id",
+      "cardReference": "Card Reference"
+    }
+  },
+  "lookupsServiceApp": {
+    "lookupsServiceCard": {
+      "created": "A new Card is created with identifier {{ param }}",
+      "updated": "A Card is updated with identifier {{ param }}",
+      "deleted": "A Card is deleted with identifier {{ param }}"
+    }
+  }
+}

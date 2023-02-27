@@ -1,0 +1,73 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-city-heading"
+        data-cy="CityCreateUpdateHeading"
+        jhiTranslate="aionDigitalMfEsApp.lookupsServiceCity.home.createOrEditLabel"
+      >
+        Create or edit a City
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aionDigitalMfEsApp.lookupsServiceCity.nameAr" for="field_nameAr">Name Ar</label>
+          <input type="text" class="form-control" name="nameAr" id="field_nameAr" data-cy="nameAr" formControlName="nameAr" />
+          <div *ngIf="editForm.get('nameAr')!.invalid && (editForm.get('nameAr')!.dirty || editForm.get('nameAr')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('nameAr')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aionDigitalMfEsApp.lookupsServiceCity.nameEn" for="field_nameEn">Name En</label>
+          <input type="text" class="form-control" name="nameEn" id="field_nameEn" data-cy="nameEn" formControlName="nameEn" />
+          <div *ngIf="editForm.get('nameEn')!.invalid && (editForm.get('nameEn')!.dirty || editForm.get('nameEn')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('nameEn')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aionDigitalMfEsApp.lookupsServiceCity.country" for="field_country">Country</label>
+          <select
+            class="form-control"
+            id="field_country"
+            data-cy="country"
+            name="country"
+            formControlName="country"
+            [compareWith]="compareCountry"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="countryOption" *ngFor="let countryOption of countriesSharedCollection">{{ countryOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
